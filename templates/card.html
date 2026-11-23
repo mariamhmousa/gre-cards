@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>GRE Cards</title>
+</head>
+<body>
+  <h1>{{ word }}</h1>
+  {% if show %}
+    <p>{{ definition }}</p>
+    <p><em>{{ example }}</em></p>
+
+    <form method="post" action="/review">
+      <input type="hidden" name="card_id" value="{{ card_id }}">
+      <button type="submit" name="rating" value="1">Again</button>
+      <button type="submit" name="rating" value="3">Hard</button>
+      <button type="submit" name="rating" value="4">Good</button>
+      <button type="submit" name="rating" value="5">Easy</button>
+    </form>
+
+  {% else %}
+    <form method="get" action="/">
+      <input type="hidden" name="show" value="1">
+      <button>Show answer</button>
+    </form>
+  {% endif %}
+
+</body>
+</html>

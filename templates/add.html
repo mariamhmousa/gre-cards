@@ -1,0 +1,18 @@
+<form method="post" action="/add">
+  <p>
+    {{ form.word.label }}<br>
+    {{ form.word() }}
+    {% for error in form.word.errors %}<br><span style="color:red">{{ error }}</span>{% endfor %}
+  </p>
+  <p>
+    {{ form.definition.label }}<br>
+    {{ form.definition(rows=3) }}
+    {% for error in form.definition.errors %}<br><span style="color:red">{{ error }}</span>{% endfor %}
+  </p>
+  <p>
+    {{ form.example.label }}<br>
+    {{ form.example(rows=2) }}
+    {% for error in form.example.errors %}<br><span style="color:red">{{ error }}</span>{% endfor %}
+  </p>
+  <button type="submit">Add card</button>
+</form>
